@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,6 +65,23 @@
 
     window.onload = function () {
       gg();
+      // 新增时间显示函数
+      function showTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var timeStr = year + '-' + (month < 10? '0' + month : month) + '-' + (day < 10? '0' + day : day) +' '+ (hours < 10? '0' + hours : hours) + ':' + (minutes < 10? '0' + minutes : minutes) + ':' + (seconds < 10? '0' + seconds : seconds);
+        var timeDiv = document.createElement('div');
+        timeDiv.style.textAlign = 'center';
+        timeDiv.innerHTML = timeStr;
+        var authorDiv = document.querySelector('.alert.alert-info');
+        authorDiv.parentNode.insertBefore(timeDiv, authorDiv);
+      }
+      showTime();
     }
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RT13NSRESZ"></script>
@@ -76,16 +92,15 @@
     gtag('config', 'G-RT13NSRESZ');
   </script>
 </head>
-
 <body background="https://s2.loli.net/2025/01/12/rIXQz61nf3RVvpt.jpg" style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed;">
   <div class="container">
     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 center-block" style="float: none;">
       <br>
       <div class="panel panel-primary">
-        <div class="panel-heading" style="background: linear-gradient(to right, #b221ff, #14b7ff, #8ae68a);">
+        <div class="panel-heading" style="background: linear-gradient(to right, #b221ff, #b7ff14, #8ae68a);">
           <center><h3 class="panel-title">大头照获取</h3></center>
         </div>
-        <div class="panel-body" style="text-align: center;">
+        <div class�{"name":"GodelPlugin","parameters":{"input":"div class="panel-body" style="text-align: center;">
           <div class="list-group">
             <div class="list-group-item list-group-item-warning" style="font-weight: bold;">
               <span>使用教程</span>
@@ -137,5 +152,4 @@
     </div>
   </div>
 </body>
-
 </html>
