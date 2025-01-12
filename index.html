@@ -29,7 +29,6 @@
         swal("ID 或跳转地址不能为空！");
         return false;
       }
-      // 假设这里定义了 str_encode 函数，例如：
       function str_encode(str) {
         return encodeURIComponent(str);
       }
@@ -67,31 +66,29 @@
     window.onload = function () {
       gg();
 
-      function showTime() {
-        var now = new Date();
-        var year = now.getFullYear();
-        var month = now.getMonth() + 1;
-        var day = now.getDate();
-        var hours = now.getHours();
-        var minutes = now.getMinutes();
-        var seconds = now.getSeconds();
-        var timeStr = year + '-' + (month < 10? '0' + month : month) + '-' + (day < 10? '0' + day : day) +' '+ (hours < 10? '0' + hours : hours) + ':' + (minutes < 10? '0' + minutes : minutes) + ':' + (seconds < 10? '0' + seconds : seconds);
-        var oldTimeDiv = document.querySelector('.time-display');
-       if (oldTimeDiv) {
-          oldTimeDiv.parentNode.
-          removeChild(oldTimeDiv);
-}
-        var timeDiv = document.createElement('div');
-        timeDiv.classList.add('time-display');
-        timeDiv.style.textAlign = 'center';
-        timeDiv.innerHTML = timeStr;
-        var authorDiv = document.querySelector('.alert.alert-info');
-        authorDiv.parentNode.insertBefore(timeDiv, authorDiv);
-      }
+function showTime() {
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth() + 1;
+  var day = now.getDate();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+  var timeStr = year + '-' + (month < 10? '0' + month : month) + '-' + (day < 10? '0' + day : day) +' '+ (hours < 10? '0' + hours : hours) + ':' + (minutes < 10? '0' + minutes : minutes) + ':' + (seconds < 10? '0' + seconds : seconds);
 
-      setInterval(showTime, 1000);
-      showTime(); 
-    }
+  var oldTimeDiv = document.getElementById('time-display');
+  if (oldTimeDiv) {
+    oldTimeDiv.parentNode.removeChild(oldTimeDiv);
+  }
+
+  var timeDiv = document.createElement('div');
+  timeDiv.id = 'time-display';
+  timeDiv.style.textAlign = 'center';
+  timeDiv.innerHTML = timeStr;
+  var authorDiv = document.querySelector('.alert.alert-info');
+  authorDiv.parentNode.insertBefore(timeDiv, authorDiv);
+}
+
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RT13NSRESZ"></script>
   <script>
